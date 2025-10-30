@@ -1,0 +1,42 @@
+
+#Random Variables
+
+import numpy as np
+ 
+# get data
+nums=np.random.randint(1,20,size=(1,15))[0]
+print("Data: ",nums)
+Data:  [ 4 10 15  7  1 10  4 13  8 18  7  9 17 16  8]
+  #get descriptive states
+import scipy as sp
+print('Mean:',np.mean(nums))
+print('Meadian:',np.median(nums))
+print('Mode:',sp.stats.mode(nums))
+print('Standard Deviation:',np.std(nums))
+print('Variance:',np.var(nums))
+print('Skew:',sp.stats.skew(nums))
+print('Kurtosis:',sp.stats.kurtosis(nums))
+Mean: 9.8
+Meadian: 9.0
+Mode: ModeResult(mode=array([4]), count=array([2]))
+Standard Deviation: 4.915282290977803
+Variance: 24.160000000000004
+Skew: 0.11708314083975753
+Kurtosis: -0.9525240121047327
+C:\Users\User\AppData\Local\Temp\ipykernel_13060\4117007640.py:5: FutureWarning: Unlike other reduction functions (e.g. `skew`, `kurtosis`), the default behavior of `mode` typically preserves the axis it acts along. In SciPy 1.11.0, this behavior will change: the default value of `keepdims` will become False, the `axis` over which the statistic is taken will be eliminated, and the value None will no longer be accepted. Set `keepdims` to True or False to avoid this warning.
+  print('Mode:',sp.stats.mode(nums))
+import scipy
+print(scipy.__version__)
+1.9.1
+#ex01
+# write a code to genarate 3 random integers between 100 and 999 which is divisible by 5
+
+#ex02
+#write a code to genarate 100 random lottery and pick 2 lucky tickets from its as a winer.
+#the lottery number must be 10 digit later.all 100 ticket nubers unique
+
+
+#ex03
+#write a code generate a password 
+# length must be 10 characters long
+#at least 2 upper case,1 digit,1 special character
