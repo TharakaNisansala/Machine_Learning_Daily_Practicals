@@ -1,42 +1,82 @@
 
-#Random Variables
-
+#matrix and their basic operations
+x=[1,2,3,4,5]
 import numpy as np
+x=np.array([1,2,3,4,5])
+print(x)
+[1 2 3 4 5]
+m=np.array([[1,5,2],
+          [4,7,4],
+          [2,0,9]])
+
+print(m)
+[[1 5 2]
+ [4 7 4]
+ [2 0 9]]
+print("Matrix transpose:\n",m.transpose(),'\n')
+print("Matrix determinant:",np.linalg.det(m),"\n")
+Matrix transpose:
+ [[1 4 2]
+ [5 7 0]
+ [2 4 9]] 
+
+Matrix determinant: -105.00000000000006 
+
+m_inv=np.linalg.inv(m)
+print("Matrix inverse:\n",m_inv,"\n")
+Matrix inverse:
+ [[-0.6         0.42857143 -0.05714286]
+ [ 0.26666667 -0.04761905 -0.03809524]
+ [ 0.13333333 -0.0952381   0.12380952]] 
+
+iden_m=np.dot(m,m_inv)
+iden_m=np.round(np.abs(iden_m),0) #A*(A)^-1=I
+print("Product of matrix and its inverse:\n",iden_m)
+Product of matrix and its inverse:
+ [[1. 0. 0.]
+ [0. 1. 0.]
+ [0. 0. 1.]]
+eigen_vals,eigen_vecs=np.linalg.eig(m)
+print("Eigen value:\n",eigen_vals,"\n")
+print("Eigen vectorz:\n",eigen_vecs,"\n")
+Eigen value:
+ [-1.32455532 11.32455532  7.        ] 
+
+Eigen vectorz:
+ [[-0.91761521  0.46120352 -0.46829291]
+ [ 0.35550789  0.79362022 -0.74926865]
+ [ 0.17775394  0.39681011  0.46829291]] 
+
+U,S,VT=np.linalg.svd(m)
+print("Getting SVD Outputs:\n")
+print("U:\n",U,"\n")
+print("S:\n",S,"\n")
+print("VT:\n",VT,"\n")
+Getting SVD Outputs:
+
+U:
+ [[ 0.3831556  -0.39279153  0.83600634]
+ [ 0.68811254 -0.48239977 -0.54202545]
+ [ 0.61619228  0.78294653  0.0854506 ]] 
+
+S:
+ [12.10668383  6.91783499  1.25370079] 
+
+VT:
+ [[ 0.36079164  0.55610321  0.74871798]
+ [-0.10935467 -0.7720271   0.62611158]
+ [-0.92621323  0.30777163  0.21772844]] 
+
+zeros_arr=np.zeros((2,3))
+print(zeros_arr)
+[[0. 0. 0.]
+ [0. 0. 0.]]
+ones_arr=np.ones((1,5),dtype=np.int32) #specifying datatype
+print(ones_arr)
+[[1 1 1 1 1]]
+ones_arr=np.ones((3,4))
+print(ones_arr)
+[[1. 1. 1. 1.]
+ [1. 1. 1. 1.]
+ [1. 1. 1. 1.]]
  
-# get data
-nums=np.random.randint(1,20,size=(1,15))[0]
-print("Data: ",nums)
-Data:  [ 4 10 15  7  1 10  4 13  8 18  7  9 17 16  8]
-  #get descriptive states
-import scipy as sp
-print('Mean:',np.mean(nums))
-print('Meadian:',np.median(nums))
-print('Mode:',sp.stats.mode(nums))
-print('Standard Deviation:',np.std(nums))
-print('Variance:',np.var(nums))
-print('Skew:',sp.stats.skew(nums))
-print('Kurtosis:',sp.stats.kurtosis(nums))
-Mean: 9.8
-Meadian: 9.0
-Mode: ModeResult(mode=array([4]), count=array([2]))
-Standard Deviation: 4.915282290977803
-Variance: 24.160000000000004
-Skew: 0.11708314083975753
-Kurtosis: -0.9525240121047327
-C:\Users\User\AppData\Local\Temp\ipykernel_13060\4117007640.py:5: FutureWarning: Unlike other reduction functions (e.g. `skew`, `kurtosis`), the default behavior of `mode` typically preserves the axis it acts along. In SciPy 1.11.0, this behavior will change: the default value of `keepdims` will become False, the `axis` over which the statistic is taken will be eliminated, and the value None will no longer be accepted. Set `keepdims` to True or False to avoid this warning.
-  print('Mode:',sp.stats.mode(nums))
-import scipy
-print(scipy.__version__)
-1.9.1
-#ex01
-# write a code to genarate 3 random integers between 100 and 999 which is divisible by 5
-
-#ex02
-#write a code to genarate 100 random lottery and pick 2 lucky tickets from its as a winer.
-#the lottery number must be 10 digit later.all 100 ticket nubers unique
-
-
-#ex03
-#write a code generate a password 
-# length must be 10 characters long
-#at least 2 upper case,1 digit,1 special character
