@@ -1,0 +1,19 @@
+import numpy as np
+# Import python libraries required:
+from keras.models import Sequential
+from keras.layers import Dense, Activation
+from tensorflow.keras.models import Sequential
+# numpy array to store inputs (x) and outputs (y):
+x = np.array([[0,0], [0,1], [1,0], [1,1]])
+y = np.array([[0], [1], [1], [0]])
+# Define network model and its arguments. 
+# Set the no. of neurons/nodes for each layer:
+model = Sequential()
+model.add(Dense(2, input_shape=(2,)))
+model.add(Activation('sigmoid'))
+model.add(Dense(1))
+model.add(Activation('sigmoid'))
+# Compile the model and it's accuracy calculation:
+model.compile(loss='mean_squared_error', optimizer='sgd', metrics=['accuracy'])
+# Print summary of the model:
+model.summary()
